@@ -9,8 +9,8 @@ job_medium:
 workflow:
   name: '$PIPELINE_NAME'
   rules:
-    - if: $CI_PIPELINE_SOURCE == "push" && $GITLAB_USER_LOGIN == "Brenda_Nyaringita"
-      when: never
+    - if: $CI_PIPELINE_SOURCE == "push" 
     - if: $CI_PIPELINE_SOURCE == "web"
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $GITLAB_USER_LOGIN == "Brenda_Nyaringita"
+      when: never
     - if: $CI_COMMIT_TAG
